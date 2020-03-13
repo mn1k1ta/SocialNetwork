@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Model
+namespace BLL.ModelDTO
 {
-    public class Post
+    public class PostDTO
     {
         public int PostId { get; set; }
         public string PostName { get; set; }
         public string Message { get; set; }
-        public DateTime DateTime { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public UserProfile UserProfile { get; set; }
-
+        public DateTime DateTime { get; set; }       
     }
 }

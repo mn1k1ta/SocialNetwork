@@ -69,5 +69,17 @@ namespace DAL.Repositories
         {
             _context.Attach(entity).State = EntityState.Modified;
         }
+
+        public async Task<ICollection<TEntity>> GetWhereWithFiltersAsync(Expression<Func<TEntity, bool>>[] expressions)
+        {
+            var queryable = _entities.AsQueryable();
+
+            foreach (var expression in expressions)
+            {
+                queryable = queryable.Where(expression);
+            }
+            return await queryable.ToListAsync();
+        }
+
     }
 }

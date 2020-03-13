@@ -9,13 +9,13 @@ using System.Text;
 
 namespace DAL.Identity
 {
-    public class ApplicationRoleManager:RoleManager<ApplicationRole>
+    public class ApplicationRoleManager:RoleManager<IdentityRole>
     {
-        public ApplicationRoleManager(IRoleStore<ApplicationRole> store, 
-            IEnumerable<IRoleValidator<ApplicationRole>> roleValidators, 
+        public ApplicationRoleManager(IRoleStore<IdentityRole> store, 
+            IEnumerable<IRoleValidator<IdentityRole>> roleValidators, 
             ILookupNormalizer keyNormalizer, 
             IdentityErrorDescriber errors,
-            ILogger<RoleManager<ApplicationRole>> logger) 
+            ILogger<RoleManager<IdentityRole>> logger) 
             : base(store,
                 roleValidators,
                 keyNormalizer,

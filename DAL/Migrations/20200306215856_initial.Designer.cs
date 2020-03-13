@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(SocialNetworkDbContext))]
-    [Migration("20200226201148_newmigr")]
-    partial class newmigr
+    [Migration("20200306215856_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,6 +99,9 @@ namespace DAL.Migrations
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -106,6 +109,8 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("CommentId");
+
+                    b.HasIndex("PostId");
 
                     b.HasIndex("UserProfileId");
 
@@ -177,8 +182,8 @@ namespace DAL.Migrations
                     b.Property<string>("AplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Birthday")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Birthday")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
@@ -343,6 +348,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Model.Comment", b =>
                 {
+                    b.HasOne("DAL.Model.Post", "Post")
+                        .WithMany("Comments")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DAL.Model.UserProfile", "UserProfile")
                         .WithMany("Comments")
                         .HasForeignKey("UserProfileId");

@@ -8,6 +8,7 @@ namespace DAL.Model
     public class ApplicationUser:IdentityUser
     {
         public  UserProfile UserProfile { get; set; }
+
         
     }
 }

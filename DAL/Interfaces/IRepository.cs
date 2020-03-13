@@ -20,5 +20,7 @@ namespace DAL.Interfaces
         IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
         Task<ICollection<TEntity>> GetWhereAsync(Expression<Func<TEntity, bool>> expression);
         Task<ICollection<TEntity>> GetAllIncludingAsync(params Expression<Func<TEntity, object>>[] includeProperties);
+        Task<ICollection<TEntity>> GetWhereWithFiltersAsync(Expression<Func<TEntity, bool>>[] expressions);
+       
     }
 }

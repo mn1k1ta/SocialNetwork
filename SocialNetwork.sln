@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApplication2sasa\WebApi.csproj", "{DC7D5823-CDB7-474A-B159-022CAB9BA198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApplication2sasa\WebApi.csproj", "{DC7D5823-CDB7-474A-B159-022CAB9BA198}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{75D360C8-E6CD-48EF-A477-DF41F317FD40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{75D360C8-E6CD-48EF-A477-DF41F317FD40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{6A75F8FD-5F7D-4DCF-ABFB-FD5A4886DA89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{75D360C8-E6CD-48EF-A477-DF41F317FD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75D360C8-E6CD-48EF-A477-DF41F317FD40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75D360C8-E6CD-48EF-A477-DF41F317FD40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A75F8FD-5F7D-4DCF-ABFB-FD5A4886DA89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A75F8FD-5F7D-4DCF-ABFB-FD5A4886DA89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A75F8FD-5F7D-4DCF-ABFB-FD5A4886DA89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A75F8FD-5F7D-4DCF-ABFB-FD5A4886DA89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
