@@ -63,9 +63,9 @@ namespace BLL.Services
 
         }
       
-        public async Task<ICollection<ApplicationUserDTO>> GetAllUsersAsync()
+        public ICollection<ApplicationUserDTO> GetAllUsersAsync()
         {
-            return _mapper.Map<ICollection<ApplicationUserDTO>>(await _database.applicationUser.Users.ToListAsync());
+            return _mapper.Map<ICollection<ApplicationUserDTO>>(_database.applicationUser.Users.ToListAsync());
         }
         
         //НЕ РАБОТАЕТ!!!!!!!!!!

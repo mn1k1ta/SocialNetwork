@@ -11,7 +11,7 @@ namespace BLL.Interfaces
     public interface IApplicationUserService
     {    
         Task<OperationDetails> DeleteUserAsync(string id);
-        Task<ICollection<ApplicationUserDTO>> GetAllUsersAsync();      
+        ICollection<ApplicationUserDTO> GetAllUsersAsync();      
         Task<ApplicationUserDTO> FindUserByUserName(string userName);
         Task<OperationDetails> UpdateUserAsync(ApplicationUserDTO userDTO);
         Task<ApplicationUserDTO> FindUserByIdAsync(string id);

@@ -18,9 +18,8 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-
-     public class AccountController : ControllerBase
+    [Authorize(Roles = "Admin")]
+    public class AccountController : ControllerBase
     {
         private readonly ILoginService _loginService;
         private readonly IMapper _mapper;
@@ -41,7 +40,6 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
-        [Authorize(Roles ="admin")]
         public async Task<IActionResult> Create(ApplicationUserDTO user)
         {
             var serviceActionResult = await _loginService.RegisterUserAsync(user);
@@ -82,17 +80,16 @@ namespace WebApi.Controllers
         }
         
         [HttpGet]
-        [Route("FindByUserId")]        
+        [Route("id/{id}")]        
         public async Task<IActionResult> FindUser(string id)
         {
             return Ok(await applicationUserService.FindUserByIdAsync(id));
         }
         [HttpGet]
         [Route("get")]
-        public async Task<Object> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var obj = await applicationUserService.GetAllUsersAsync();
-            return obj;
+            return Ok( applicationUserService.GetAllUsersAsync());
         }
 
         [HttpDelete]

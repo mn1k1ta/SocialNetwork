@@ -1,5 +1,4 @@
-﻿using DAL.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +16,6 @@ namespace BLL.ModelDTO
         public string Sity { get; set; }
         public string AboutMe { get; set; }
         public string MaritalStatus { get; set; }
-        public string Img { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public string Img { get; set; }       
     }
 }
