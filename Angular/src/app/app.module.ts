@@ -12,6 +12,7 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 
 import { UserService } from './shared/user.service';
+import { ShowUserProfileComponent } from './home/show-user-profile/show-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserService } from './shared/user.service';
     UserComponent,
     RegistrationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ShowUserProfileComponent
    
   ],
   imports: [

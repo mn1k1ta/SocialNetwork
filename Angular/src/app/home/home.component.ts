@@ -10,37 +10,31 @@ import { User } from '../user';
 })
 export class HomeComponent implements OnInit {
   userDetails;
-  user:User=new User();
-  users:User[];
-  userAuth:User=new User();
-  tableMode:boolean=true;
-  userName:string;
+  user: User = new User();
+  users: User[];
+  userAuth: User = new User();
+  tableMode: boolean = true;
+  userName: string;
 
   constructor(private router: Router, private service: UserService) { }
 
   ngOnInit() {
     this.lodadUsers();
     this.loadAuthUser();
-    
   }
 
-  loadAuthUser(){
-    this.service.getUserProfileById().subscribe((data:User)=>this.userAuth=data);
-    this.userName=this.userAuth.userName;
+  loadAuthUser() {
+    this.service.getUserProfileById().subscribe((data: User) => this.userAuth = data);
+    this.userName = this.userAuth.userName;
     console.log(this.userAuth);
   }
 
   lodadUsers(){
-    this.service.getProducts().subscribe((data:User[])=>this.users=data);
+    this.service.getProducts().subscribe((data: User[]) => this.users = data);
     console.log(this.users);
   }
-  
-  
   onLogout() {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
   }
-
-  
-
 }
