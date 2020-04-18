@@ -2,12 +2,14 @@
 using AutoMapper;
 using BLL.Interfaces;
 using BLL.ModelDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "User")]
     public class PostController : ControllerBase
     {
         private readonly IPostService _postService;
