@@ -13,7 +13,7 @@ namespace BLL.Interfaces
         Task<OperationDetails> UpdateCommentAsync(CommentDTO commentDTO);
         Task<OperationDetails> DeleteCommentAsync(int commentId);
         Task<ICollection<CommentDTO>> GetAllComentsAsync();
-        Task<ICollection<CommentDTO>> GetAllCommentsByPost(int postId);
+        Task<ICollection<CommentDTO>> GetAllCommentsByPostAsync(int postId);
         Task<CommentDTO> GetCommentById(int commentId);
 
     }

@@ -53,7 +53,7 @@ namespace BLL.Services
             return _mapper.Map<ICollection<CommentDTO>>(comments);
         }
 
-        public async Task<ICollection<CommentDTO>> GetAllCommentsByPost(int postId)
+        public async Task<ICollection<CommentDTO>> GetAllCommentsByPostAsync(int postId)
         {
             var post = await _database.postRepository.GetByIdAsync(postId);
             if (post == null)
