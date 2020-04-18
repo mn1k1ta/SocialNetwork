@@ -5,9 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using BLL.Interfaces;
-using BLL.ModelDTO;
 using DAL.Interfaces;
 using DAL.Model;
 using Microsoft.AspNetCore.Http;
@@ -26,13 +24,9 @@ namespace WebApi.Controllers
         
         private readonly IUnitOfWork _userManger;
         private readonly ApplicationSettings _appSettings;
-        private readonly IUserProfileService _userProfileService;
-        private readonly IMapper _mapper;
-        
-        public ApplicationUserController( IUnitOfWork _userManger,IOptions<ApplicationSettings> options, IUserProfileService _userProfileService, IMapper _mapper)
+        public ApplicationUserController( IUnitOfWork _userManger,IOptions<ApplicationSettings> options)
         {
-            this._mapper = _mapper;
-            this._userProfileService = _userProfileService;
+            
             this._userManger = _userManger;
             _appSettings = options.Value;
         }
@@ -52,16 +46,13 @@ namespace WebApi.Controllers
             try
             {
                 var result = await _userManger.applicationUser.CreateAsync(applicationUser, model.Password);
-                await _userProfileService.CreateUserProfileAsync(new UserProfileDTO{ ApplicationUser=_mapper.Map<ApplicationUser>(model)});
-               
                 await _userManger.applicationUser.AddToRoleAsync(applicationUser, model.Role);
                 return Ok(result);
-                
             }
             catch (Exception ex)
             {
 
-                return BadRequest(ex);
+                throw ex;
             }
         }
 
@@ -90,9 +81,7 @@ namespace WebApi.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
-
-            
-                return Ok(new { token,user.Id });
+                return Ok(new { token });
             }
             else
                 return BadRequest(new { message = "Username or password is incorrect." });
