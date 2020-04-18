@@ -47,20 +47,10 @@ export class UserService {
   login(formData) {
     return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
   }
-
-  getUserProfile() {
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
-    return this.http.get(this.BaseURI + '/Account/get', {headers: tokenHeader});
-  }
-
   getAuthUser() {
-    return localStorage.getItem('userId');
-  }
-
-  getUserProfileById() {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
-    return this.http.get(this.BaseURI + '/Account/FindByUserId', { headers: tokenHeader, params: new HttpParams().set('id', localStorage.getItem('userId'))});
+    return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileByApplicationUserId', { headers: tokenHeader, params: new HttpParams().set('id', localStorage.getItem('userId'))});
   }
 }
 

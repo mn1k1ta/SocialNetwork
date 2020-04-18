@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../shared/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-show-user-profile',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowUserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.loadAuthUserProfile();
+  }
+  loadAuthUserProfile() {
+    this.service.getAuthUser();
   }
 
 }
