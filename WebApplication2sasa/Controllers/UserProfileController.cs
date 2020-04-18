@@ -65,5 +65,12 @@ namespace WebApi.Controllers
         {
             return Ok(await _userProfileService.UpdateUserProfileAsync(userProfileDTO));
         }
+
+        [HttpGet]
+        [Route("GetUserProfileByApplicationUserId")]
+        public async Task<IActionResult> GetUserProfileByApplicationUserId(int userId)
+        {
+            return Ok(await _userProfileService.GetUserProfileByApplicationUserId(userId));
+        }
     }
 }

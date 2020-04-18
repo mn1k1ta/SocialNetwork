@@ -19,19 +19,6 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private service: UserService) { }
 
   ngOnInit() {
-    this.lodadUsers();
-    this.loadAuthUser();
-  }
-
-  loadAuthUser() {
-    this.service.getUserProfileById().subscribe((data: User) => this.userAuth = data);
-    this.userName = this.userAuth.userName;
-    console.log(this.userAuth);
-  }
-
-  lodadUsers(){
-    this.service.getProducts().subscribe((data: User[]) => this.users = data);
-    console.log(this.users);
   }
   onLogout() {
     localStorage.removeItem('token');

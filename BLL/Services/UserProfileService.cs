@@ -143,5 +143,12 @@ namespace BLL.Services
             return _mapper.Map<ICollection<UserProfileDTO>>(users);
         }
 
+        public async Task<UserProfileDTO> GetUserProfileByApplicationUserId(string userId)
+        {
+            var userProfile = await _database.userProfileRepository.GetWhereAsync(u => u.AplicationUserId == userId);
+            if (userProfile.Count == 0)
+                throw new UserException(false, "User Profile with this id is null!", "GetUserProfileByApplicationUserId");
+            return _mapper.Map<UserProfileDTO>(userProfile.First());
+        }
     }
 }

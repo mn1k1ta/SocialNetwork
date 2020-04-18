@@ -23,19 +23,20 @@ export class UserService {
   });
 
   comparePasswords(fb: FormGroup) {
-    let confirmPswrdCtrl = fb.get('ConfirmPassword');
-    //passwordMismatch
-    //confirmPswrdCtrl.errors={passwordMismatch:true}
+    const confirmPswrdCtrl = fb.get('ConfirmPassword');
+    // passwordMismatch
+    // confirmPswrdCtrl.errors={passwordMismatch:true}
     if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
-      if (fb.get('Password').value != confirmPswrdCtrl.value)
+      if (fb.get('Password').value != confirmPswrdCtrl.value) {
         confirmPswrdCtrl.setErrors({ passwordMismatch: true });
-      else
+      } else {
         confirmPswrdCtrl.setErrors(null);
+      }
     }
   }
 
   register() {
-    var body = {
+    const body = {
       UserName: this.formModel.value.UserName,
       Email: this.formModel.value.Email,
       FullName: this.formModel.value.FullName,
@@ -48,24 +49,19 @@ export class UserService {
   }
 
   getUserProfile() {
-    var tokenHeader= new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
-    return this.http.get(this.BaseURI + '/Account/get',{headers:tokenHeader});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    return this.http.get(this.BaseURI + '/Account/get', {headers: tokenHeader});
   }
 
-  getAuthUser(){
+  getAuthUser() {
     return localStorage.getItem('userId');
   }
 
   getUserProfileById() {
-    var tokenHeader= new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
-    return this.http.get(this.BaseURI + '/Account/FindByUserId',{headers:tokenHeader, params:new HttpParams().set('id', localStorage.getItem('userId'))});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(this.BaseURI + '/Account/FindByUserId', { headers: tokenHeader, params: new HttpParams().set('id', localStorage.getItem('userId'))});
   }
-
-  getProducts() {
-    var tokenHeader= new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('token')});
-    return this.http.get(this.BaseURI + '/Account/get',{headers:tokenHeader});
-}
-
 }
 
 
