@@ -12,7 +12,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "User")]
+    
     public class UserProfileController : ControllerBase
     {
         private readonly IUserProfileService _userProfileService;
@@ -68,7 +68,7 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [Route("GetUserProfileByApplicationUserId")]
-        public async Task<IActionResult> GetUserProfileByApplicationUserId(int userId)
+        public async Task<IActionResult> GetUserProfileByApplicationUserId(string userId)
         {
             return Ok(await _userProfileService.GetUserProfileByApplicationUserId(userId));
         }

@@ -1,7 +1,5 @@
 export class User {
-    
-    
-        userName?:string;
-        email?:string;
-   
+  userName?:string;
+  email?:string;
+
 }

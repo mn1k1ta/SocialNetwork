@@ -24,7 +24,7 @@ namespace BLL.Interfaces
         Task<ICollection<UserProfileDTO>> FindUserProfileByAgeAsync(int minAge, int maxAge);
         Task<ICollection<UserProfileDTO>> FilterManagerAsync(IFilter[] filters);
         Task<ICollection<UserProfileDTO>> GetFriendsByUserAsync(int userId);
-        Task<UserProfileDTO> GetUserProfileByApplicationUserId(int userId);
+        Task<UserProfileDTO> GetUserProfileByApplicationUserId(string userId);
 
 
 
