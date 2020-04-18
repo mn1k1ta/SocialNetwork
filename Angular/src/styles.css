@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: #ffffff;;
+    background-image: url("app/user/img/textured_paper.png") ;
 }
 
 input.form-control,input.form-control:focus{
@@ -578,3 +578,5 @@ div.form-group.required>label:first-child:after{
     display: none !important;
   }
 }
+
+

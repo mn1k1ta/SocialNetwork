@@ -2,3 +2,13 @@
     color: black;
     margin-top: 20px;
 }
+
+a{
+  font-size: large;
+  color: #FFFFFF;
+}
+
+.btn-outline-primary{
+  background: #dc3545;
+  border-color: #FFFFFF;
+}

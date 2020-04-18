@@ -1,10 +1,12 @@
 export class UserProfileModel {
- UserProfileId: number;
- Birthday: string;
- Gender: string;
- Address: string;
- Description: string;
- Country: string;
- Sity: string;
- MaritalStatus: string;
+ userProfileId: number;
+ name: string;
+ birthday: string;
+ gender: string;
+ address: string;
+ description: string;
+ country: string;
+ sity: string;
+ maritalStatus: string;
+ img: string;
 }

@@ -12,7 +12,8 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+    [Authorize(Roles = "User")]
+
     public class UserProfileController : ControllerBase
     {
         private readonly IUserProfileService _userProfileService;

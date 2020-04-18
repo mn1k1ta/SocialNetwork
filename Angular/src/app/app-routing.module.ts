@@ -5,18 +5,23 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
+import {EditUserProfileComponent} from './home/edit-user-profile/edit-user-profile.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'/user/registration',pathMatch:'full'},
+  {path: '', redirectTo: '/user/registration', pathMatch: 'full'},
   {
     path: 'user', component: UserComponent,
     children: [
-      {path: 'login', component:LoginComponent},
+      {path: 'login', component: LoginComponent},
       { path: 'registration', component: RegistrationComponent }
     ]
   },
-  {path:'home',component:HomeComponent,canActivate:[AuthGuard]}
+  {path: 'home' , component : HomeComponent, canActivate:[AuthGuard],
+    children: [
+      {path: 'edit-user-profile', component: EditUserProfileComponent}
+    ]
+  }
 ];
 
 @NgModule({

@@ -1,1 +1,17 @@
-<p>show-user-profile works!</p>
+<div class="main-userprofile">
+<div class="card" style="width: 23rem;">
+  <img class="card-img-top" src="{{authUserProfile.img}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{authUserProfile.name}}</h5>
+    <p class="card-text">{{authUserProfile.description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" >{{authUserProfile.birthday}}</li>
+    <li class="list-group-item" >{{authUserProfile.gender}}</li>
+    <li class="list-group-item">{{authUserProfile.country}}</li>
+    <li class="list-group-item">{{authUserProfile.sity}}</li>
+    <li class="list-group-item" >{{authUserProfile.address}}
+    <li class="list-group-item" >{{authUserProfile.maritalStatus}}</li>
+  </ul>
+</div>
+</div>

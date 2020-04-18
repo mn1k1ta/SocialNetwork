@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 
 import { UserService } from './shared/user.service';
 import { ShowUserProfileComponent } from './home/show-user-profile/show-user-profile.component';
+import { EditUserProfileComponent } from './home/edit-user-profile/edit-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ShowUserProfileComponent } from './home/show-user-profile/show-user-pro
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    ShowUserProfileComponent
+    ShowUserProfileComponent,
+    EditUserProfileComponent
    
   ],
   imports: [
