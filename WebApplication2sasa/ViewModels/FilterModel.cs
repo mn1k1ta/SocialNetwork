@@ -21,7 +21,7 @@ namespace WebApi.ViewModels
             }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value)&&value!= "undefined")
                     name = value;
 
             }
@@ -35,7 +35,7 @@ namespace WebApi.ViewModels
             }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value) && value != "undefined")
                     gender = value;
             }
         }
@@ -48,7 +48,7 @@ namespace WebApi.ViewModels
             }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value) && value != "undefined")
                     city = value;
             }
         }
@@ -61,7 +61,7 @@ namespace WebApi.ViewModels
             }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value) && value != "undefined")
                     country = value;
             }
         }
