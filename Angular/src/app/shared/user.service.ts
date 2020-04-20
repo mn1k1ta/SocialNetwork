@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {UserProfileModel} from '../Models/user-profile-model';
+import {FilterForSearchModel} from '../Models/filter-for-search-model';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,14 @@ export class UserService {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.put(this.BaseURI + '/UserProfile/EditUserProfile', userProfile, { headers: tokenHeader});
+  }
+  findUserByFilter(filter: FilterForSearchModel){
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(this.BaseURI + '/UserProfile/SearchByFilters', { headers: tokenHeader, params: new HttpParams().set('name', filter.name)
+        .set('gender', filter.gender)
+        .set('country', filter.country)
+        .set('city', filter.city)});
   }
 }
 

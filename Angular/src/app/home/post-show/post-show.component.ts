@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PostService} from '../../shared/post.service';
 import {Router} from '@angular/router';
 import {PostModel} from '../../Models/post-model';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-post-show',
@@ -11,12 +12,11 @@ import {PostModel} from '../../Models/post-model';
 export class PostShowComponent implements OnInit {
   post: PostModel = new PostModel();
   posts: PostModel[];
-  constructor(private service: PostService, private router: Router) { }
+  constructor(private service: PostService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loadAllPosts();
   }
-
   loadAllPosts() {
     this.service.loadAllPosts().subscribe((data: PostModel[]) => this.posts = data);
   }

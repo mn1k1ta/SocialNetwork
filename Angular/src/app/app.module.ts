@@ -19,6 +19,8 @@ import {CommonModule} from '@angular/common';
 import { PostShowComponent } from './home/post-show/post-show.component';
 import { MyPostsShowComponent } from './home/my-posts-show/my-posts-show.component';
 import { EditMyPostComponent } from './home/edit-my-post/edit-my-post.component';
+import { CreatePostComponent } from './home/create-post/create-post.component';
+import { FindUserByFilterComponent } from './home/find-user-by-filter/find-user-by-filter.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { EditMyPostComponent } from './home/edit-my-post/edit-my-post.component'
     EditUserProfileComponent,
     PostShowComponent,
     MyPostsShowComponent,
-    EditMyPostComponent
+    EditMyPostComponent,
+    CreatePostComponent,
+    FindUserByFilterComponent
   ],
   imports: [
     BrowserModule,

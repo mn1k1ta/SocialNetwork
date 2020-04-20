@@ -1,0 +1,98 @@
+input{
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+textarea{
+  resize: none;
+  height: 100px;
+}
+
+.input-for-edit{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+
+}
+
+.centerbox{
+  align-items: center;
+
+}
+.buttomEdit{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+
+}
+.card{
+  display: flex;
+}
+.main-userprofile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.show-main-page{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.search-users{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.show-users{
+  display: flex;
+  flex-direction: column;
+}
+
+.card{
+  margin-top: 20px;
+  width: 40rem;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-buttom{
+  display: flex;
+  flex-direction: column;
+}
+
+button{
+  margin-bottom: 10px;
+}
+
+.user-info-date{
+  display: flex;
+  flex-direction: column;
+  width: 5rem;
+}
+
+span{
+  margin-bottom: 10px;
+}
