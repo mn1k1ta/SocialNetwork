@@ -109,7 +109,7 @@ namespace BLL.Services
             var user = await _database.userProfileRepository.GetByIdAsync(userProfile.UserProfileId);
             if (user == null)
                 throw new UserException(false, "User with this id is not found", "Update");
-            _database.userProfileRepository.Update(_mapper.Map<UserProfile>(userProfile));
+            _database.userProfileRepository.Update(_mapper.Map(userProfile,user));
             await _database.SaveAsync();
             return new OperationDetails(true, "User is Updated", "Update");
         }
