@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Interfaces;
 using BLL.ModelDTO;
@@ -67,9 +68,9 @@ namespace WebApi.Controllers
 
         [HttpGet]
         [Route("GetPostsByUser")]
-        public async Task<IActionResult> GetPostsByUser(int id)
-        {
-            return Ok(await _postService.GetAllPostByUser(id));
+        public async Task<IActionResult> GetPostsByUser(string id)
+        {           
+            return Ok(await _postService.GetAllPostByUser(Convert.ToInt32(id)));
         }
     }
 }
