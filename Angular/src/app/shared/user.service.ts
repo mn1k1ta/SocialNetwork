@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {UserProfileModel} from '../Models/user-profile-model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,11 @@ export class UserService {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileByApplicationUserId', { headers: tokenHeader, params: new HttpParams().set('userId', localStorage.getItem('userId'))});
+  }
+  editUserProfile(userProfile: UserProfileModel) {
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    // tslint:disable-next-line:max-line-length
+    return this.http.put(this.BaseURI + '/UserProfile/EditUserProfile', userProfile, { headers: tokenHeader});
   }
 }
 

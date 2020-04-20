@@ -6,3 +6,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

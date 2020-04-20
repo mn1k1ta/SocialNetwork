@@ -6,6 +6,7 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import {EditUserProfileComponent} from './home/edit-user-profile/edit-user-profile.component';
+import {ShowUserProfileComponent} from './home/show-user-profile/show-user-profile.component';
 
 
 const routes: Routes = [
@@ -17,9 +18,10 @@ const routes: Routes = [
       { path: 'registration', component: RegistrationComponent }
     ]
   },
-  {path: 'home' , component : HomeComponent, canActivate:[AuthGuard],
+  {path: 'home' , component : HomeComponent, canActivate: [AuthGuard],
     children: [
-      {path: 'edit-user-profile', component: EditUserProfileComponent}
+      {path: 'app-edit-user-profile', component: EditUserProfileComponent},
+      {path: 'app-show-user-profile', component: ShowUserProfileComponent}
     ]
   }
 ];

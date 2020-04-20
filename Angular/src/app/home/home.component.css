@@ -5,10 +5,11 @@
 
 a{
   font-size: large;
-  color: #FFFFFF;
+margin-right: 20px;
 }
 
 .btn-outline-primary{
   background: #dc3545;
   border-color: #FFFFFF;
+  color: #FFFFFF;
 }

@@ -1,1 +1,68 @@
-<p>edit-user-profile works!</p>
+<div class="centerbox">
+  <img src="{{userProfileForEdit.img}}" width="300px" height="300px" class="img-thumbnail" alt="...">
+<div class="input-for-edit">
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Name</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" [(ngModel)]="userProfileForEdit.name">
+</div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01" name="name" [(ngModel)]="userProfileForEdit.gender">
+      <option   value="Male">Male</option>
+      <option  value="Fame">Fame</option>
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Birthday</span>
+    </div>
+    <div class="input-group-prepend">
+      <span class="input-group-text" >{{userProfileForEdit.birthday | date}}</span>
+    </div>
+    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="userProfileForEdit.birthday">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Country</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="userProfileForEdit.country">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >City</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="userProfileForEdit.sity">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Address</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="userProfileForEdit.address">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" >Marital Status</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="userProfileForEdit.maritalStatus">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">About Me</span>
+    </div>
+    <textarea class="form-control" maxlength="150" aria-label="With textarea" [(ngModel)]="userProfileForEdit.description"></textarea>
+  </div>
+  <div class="buttomEdit">
+  <button type="button" class="btn btn-success" (click)="editUserProfile(userProfileForEdit)">
+    <svg class="bi bi-wrench" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M.102 2.223A3.004 3.004 0 003.78 5.897l6.341 6.252A3.003 3.003 0 0013 16a3 3 0 10-.851-5.878L5.897 3.781A3.004 3.004 0 002.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z" clip-rule="evenodd"/>
+    </svg>
+    Edit</button>
+  </div>
+</div>
+
+</div>

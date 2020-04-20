@@ -14,6 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { UserService } from './shared/user.service';
 import { ShowUserProfileComponent } from './home/show-user-profile/show-user-profile.component';
 import { EditUserProfileComponent } from './home/edit-user-profile/edit-user-profile.component';
+import {ToastrModule} from 'ngx-toastr';
+import {CommonModule} from '@angular/common';
+import { PostShowComponent } from './home/post-show/post-show.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +26,8 @@ import { EditUserProfileComponent } from './home/edit-user-profile/edit-user-pro
     LoginComponent,
     HomeComponent,
     ShowUserProfileComponent,
-    EditUserProfileComponent
-   
+    EditUserProfileComponent,
+    PostShowComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +35,13 @@ import { EditUserProfileComponent } from './home/edit-user-profile/edit-user-pro
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,8 +21,6 @@ increase() : void {
   constructor(private service: UserService, private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('token') != null)
-      this.router.navigateByUrl('/home');
   }
 
   onSubmit(form: NgForm) {
@@ -30,13 +28,13 @@ increase() : void {
       (res: any) => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('userId',res.id);
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home/app-show-user-profile');
       },
       err => {
         if (err.status != 400)
                    console.log(err);
       }
-    ); 
+    );
   }
 
 }
