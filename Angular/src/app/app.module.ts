@@ -17,6 +17,8 @@ import { EditUserProfileComponent } from './home/edit-user-profile/edit-user-pro
 import {ToastrModule} from 'ngx-toastr';
 import {CommonModule} from '@angular/common';
 import { PostShowComponent } from './home/post-show/post-show.component';
+import { MyPostsShowComponent } from './home/my-posts-show/my-posts-show.component';
+import { EditMyPostComponent } from './home/edit-my-post/edit-my-post.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PostShowComponent } from './home/post-show/post-show.component';
     HomeComponent,
     ShowUserProfileComponent,
     EditUserProfileComponent,
-    PostShowComponent
+    PostShowComponent,
+    MyPostsShowComponent,
+    EditMyPostComponent
   ],
   imports: [
     BrowserModule,

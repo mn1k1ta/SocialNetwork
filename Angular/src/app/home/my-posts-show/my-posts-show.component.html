@@ -1,8 +1,13 @@
+<div class="my-posts-show">
 <div class="card" *ngFor="let item of posts" style="width: 29rem;">
   <div class="card-body">
     <h5 class="card-title">{{item.postName}}</h5>
     <span class="badge badge-pill badge-primary">{{item.dateTime | date}}</span>
     <p class="card-text">{{item.message}}}</p>
+    <div class="butt-edit-comment">
     <a href="#" class="btn btn-primary">Comment</a>
+    <a href="#" class="btn btn-warning">Edit</a>
+    </div>
   </div>
+</div>
 </div>

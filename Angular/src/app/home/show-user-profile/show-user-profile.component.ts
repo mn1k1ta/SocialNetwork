@@ -16,7 +16,10 @@ export class ShowUserProfileComponent implements OnInit {
     this.loadAuthUserProfile();
   }
   loadAuthUserProfile() {
-    this.service.getAuthUser().subscribe((data: UserProfileModel) => this.authUserProfile = data);
+    this.service.getAuthUser().subscribe((data: UserProfileModel) => {
+      this.authUserProfile = data;
+      localStorage.setItem('authUserProfileId', data.userProfileId.toString());
+    });
   }
 
 }
