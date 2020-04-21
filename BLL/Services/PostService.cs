@@ -51,7 +51,15 @@ namespace BLL.Services
             var posts = await _database.postRepository.GetAllAsync();
             if (posts == null)
                 throw new UserException(false, "Post is null", "Post");
-            return _mapper.Map<ICollection<PostDTO>>(posts);
+           
+            var postsDTO =_mapper.Map<ICollection<PostDTO>>(posts);
+            foreach (var item in postsDTO)
+            {
+                var user = await _database.userProfileRepository.GetByIdAsync(item.UserProfileId);
+                item.UserName = user.Name;
+                item.Img = user.Img;
+            }           
+            return postsDTO;
                                                 
         }
 
@@ -60,15 +68,25 @@ namespace BLL.Services
             var posts = await _database.postRepository.GetWhereAsync(p => p.UserProfile.UserProfileId == userId);
             if(posts==null)
                 throw new UserException(true, "Post with this user is NULL!", "GetByUser");
-            return _mapper.Map<ICollection<PostDTO>>(posts);
+            var postsDTO = _mapper.Map<ICollection<PostDTO>>(posts);
+            foreach (var item in postsDTO)
+            {
+                var user = await _database.userProfileRepository.GetByIdAsync(item.UserProfileId);
+                item.UserName = user.Name;
+                item.Img = user.Img;
+            }
+            return postsDTO;
         }
 
         public async Task<PostDTO> GetPostById(int postId)
         {
-            var post = await _database.postRepository.GetByIdAsync(postId);
+            var post = _mapper.Map<PostDTO>(await _database.postRepository.GetByIdAsync(postId));
             if (post == null)
                 throw new UserException(true, "Post with this id is NULL!","GetById");
-            return _mapper.Map<PostDTO>(post);
+            var user = await _database.userProfileRepository.GetByIdAsync(post.UserProfileId);
+            post.UserName = user.Name;
+            post.Img = user.Img;
+            return post;
         }
 
         public async Task<OperationDetails> UpdatePostAsync(PostDTO postDTO)

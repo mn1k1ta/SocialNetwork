@@ -11,6 +11,7 @@ namespace BLL.ModelDTO
         public string Message { get; set; }
         public string UserName { get; set; }
         public string Img { get; set; }
+        public int UserProfileId { get; set; }
         public DateTime DateTime { get; set; }       
     }
 }
