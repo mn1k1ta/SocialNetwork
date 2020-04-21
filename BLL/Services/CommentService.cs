@@ -6,6 +6,7 @@ using DAL.Interfaces;
 using DAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace BLL.Services
             _database = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<OperationDetails> CreateCommentAsync(CommentDTO commentDTO, int postId)
+        public async Task<OperationDetails> CreateCommentAsync(CommentDTO commentDTO, int postId, int userId)
         {
             if (commentDTO == null)
                 return new OperationDetails(false, "Comment is null", "Comment");
@@ -30,6 +31,7 @@ namespace BLL.Services
                 return new OperationDetails(false, "Post eith this id is null", "PostId");
             var comment = _mapper.Map<Comment>(commentDTO);
             comment.Post = post;
+            comment.UserId = userId;
             _database.commentRepository.Create(comment);
             await _database.SaveAsync();
             return new OperationDetails(true, "Comment is created","CommentCreate");
@@ -58,15 +60,27 @@ namespace BLL.Services
             var post = await _database.postRepository.GetByIdAsync(postId);
             if (post == null)
                 throw new UserException(false, "POst with this id is not found", "GetlAllPost");
-            return _mapper.Map<ICollection<CommentDTO>>(await _database.commentRepository.GetWhereAsync(c => c.PostId == postId));
+            var comment = _mapper.Map<ICollection<CommentDTO>>(await _database.commentRepository.GetWhereAsync(c => c.PostId == postId));
+            foreach (var item in comment)
+            {
+                var user = await _database.userProfileRepository.GetWhereAsync(u => u.UserProfileId == item.UserId);
+                //var user = await _userProfile.FindUserProfileByIdAsync(item.UserId);
+                item.UserName = user.First().Name;
+                item.Img = user.First().Img;
+            }
+            
+            return comment;
         }
 
         public async Task<CommentDTO> GetCommentById(int commentId)
         {
-            var comment = await _database.commentRepository.GetByIdAsync(commentId);
+            var comment = _mapper.Map < CommentDTO >(await _database.commentRepository.GetByIdAsync(commentId));
             if (comment == null)
                 throw new UserException(false, "Comment with this id is null", "Comment");
-            return _mapper.Map<CommentDTO>(comment);
+            var user = await _database.userProfileRepository.GetByIdAsync(comment.UserId);
+            comment.UserName = user.Name;
+            comment.Img = user.Img;
+            return comment;
         }
 
         public async Task<OperationDetails> UpdateCommentAsync(CommentDTO commentDTO)

@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "User")]
+    //[Authorize(Roles = "User")]
     public class CommentController : ControllerBase
     {
         private readonly ICommentService _commentService;
@@ -22,9 +22,9 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("CreateComment")]
-        public async Task<IActionResult> CreateComment(CommentDTO commentDTO,int postId)
+        public async Task<IActionResult> CreateComment(CommentDTO commentDTO,int postId, int userId)
         {
-            return Ok(await _commentService.CreateCommentAsync(commentDTO, postId));
+            return Ok(await _commentService.CreateCommentAsync(commentDTO, postId,userId));
         }
 
         [HttpPut]

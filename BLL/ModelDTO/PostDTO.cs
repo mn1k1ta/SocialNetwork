@@ -9,6 +9,8 @@ namespace BLL.ModelDTO
         public int PostId { get; set; }
         public string PostName { get; set; }
         public string Message { get; set; }
+        public string UserName { get; set; }
+        public string Img { get; set; }
         public DateTime DateTime { get; set; }       
     }
 }

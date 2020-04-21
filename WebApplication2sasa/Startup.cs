@@ -60,6 +60,8 @@ namespace WebApplication2sasa
             services.AddScoped<IApplicationUserService, ApplicationUserService>();           
             services.AddScoped<IUserProfileService, UserProfileService>();
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IFriendsServices, FriendsService>();
           
 
             services.Configure<IdentityOptions>(options =>

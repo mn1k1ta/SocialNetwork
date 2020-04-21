@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
-   public  interface IUserProfileService
+   public interface IUserProfileService
     {
         Task<OperationDetails> CreateUserProfileAsync(UserProfileDTO userProfile);
         Task<ICollection<UserProfileDTO>> GellAllUserProfileAsync();

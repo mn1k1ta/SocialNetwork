@@ -15,10 +15,11 @@ namespace WebApi.Controllers
         private readonly IMapper _mapper;
         private readonly IUserProfileService _userProfileService;
 
-        public FriendsController(IFriendsServices _friendsServices, IMapper _mapper)
+        public FriendsController(IFriendsServices _friendsServices, IMapper _mapper, IUserProfileService _userProfileService)
         {
             this._friendsServices = _friendsServices;
             this._mapper = _mapper;
+            this._userProfileService = _userProfileService;
         }
 
         [HttpPost]

@@ -9,6 +9,9 @@ namespace BLL.ModelDTO
     {
         public int CommentId { get; set; }
         public string Message { get; set; }
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Img { get; set; }
         public DateTime DateTime { get; set; }       
     }
 }
