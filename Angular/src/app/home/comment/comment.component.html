@@ -1,0 +1,60 @@
+<div class="my-posts-show">
+  <div class="card"  style="width: 29rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{post.postName}}</h5>
+      <span class="badge badge-pill badge-primary">{{post.dateTime | date}}</span>
+      <p class="card-text">{{post.message}}</p>
+      <div class="butt-edit-comment">
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let item of comments"  class="card text-white bg-secondary mb-3" style="max-width: 29rem; width: 29rem;">
+    <div *ngIf="userProfileId==item.userId">
+    <div class="card-header">
+      <div>
+      <img width="50 rem" src="{{item.img}}">
+      {{item.userName}}
+        <span class="badge badge-primary">{{item.dateTime | date }}</span>
+      </div>
+      <div class="butt-del-edit">
+
+        <button type="button" (click)="delete(item.commentId)" class="btn btn-danger"><svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+        </svg></button>
+        <button type="button" (click)="edit(item.commentId)"  class="btn btn-warning"><svg class="bi bi-wrench" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M.102 2.223A3.004 3.004 0 003.78 5.897l6.341 6.252A3.003 3.003 0 0013 16a3 3 0 10-.851-5.878L5.897 3.781A3.004 3.004 0 002.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019L13 11l-.471.242-.529.026-.287.445-.445.287-.026.529L11 13l.242.471.026.529.445.287.287.445.529.026L13 15l.471-.242.529-.026.287-.445.445-.287.026-.529L15 13l-.242-.471-.026-.529-.445-.287-.287-.445-.529-.026z" clip-rule="evenodd"/>
+        </svg></button>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{item.message}}</p>
+    </div>
+    </div>
+    <div *ngIf="userProfileId!=item.userId">
+      <div class="card-header">
+        <div>
+          <img width="50 rem" src="{{item.img}}">
+          {{item.userName}}
+          <span class="badge badge-primary">{{item.dateTime | date}}</span>
+        </div>
+        <div class="butt-del-edit">
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{item.message}}</p>
+      </div>
+    </div>
+  </div>
+  <div  class="card bg-light mb-3" style="max-width: 29rem; width: 29rem;">
+    <div class="card-body">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Message:</span>
+        </div>
+        <textarea class="form-control" maxlength="150" aria-label="With textarea" [(ngModel)]="comment.message"></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn btn-success" (click)="createComment(comment)"> Create</button>
+  </div>
+</div>

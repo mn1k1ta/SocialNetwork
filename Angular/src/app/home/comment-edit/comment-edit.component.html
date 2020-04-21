@@ -1,0 +1,18 @@
+<div class="main-box">
+<div   class="card text-white bg-secondary mb-3" style="max-width: 29rem; width: 29rem;">
+    <div class="card-header">
+      <div>
+        <img width="50 rem" src="{{comment.img}}">
+        {{comment.userName}}
+        <span class="badge badge-primary">{{comment.dateTime | date}}</span>
+      </div>
+      <div class="butt-del-edit">
+      </div>
+    </div>
+    <div class="card-body">
+      <textarea class="form-control" maxlength="150" aria-label="With textarea" [(ngModel)]="comment.message"></textarea>
+    </div>
+  <button (click)="edit(comment)" type="button" class="btn btn-success">Edit</button>
+</div>
+
+</div>

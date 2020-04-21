@@ -29,4 +29,8 @@ posts: PostModel[];
       this.toastr.success('\n' + 'Delted!', 'Delete Post');
     });
   }
+  comment(postId: any) {
+    localStorage.setItem('postIdForComment', postId);
+    this.router.navigateByUrl('/home/app-comments');
+  }
 }

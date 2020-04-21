@@ -21,6 +21,9 @@ import { MyPostsShowComponent } from './home/my-posts-show/my-posts-show.compone
 import { EditMyPostComponent } from './home/edit-my-post/edit-my-post.component';
 import { CreatePostComponent } from './home/create-post/create-post.component';
 import { FindUserByFilterComponent } from './home/find-user-by-filter/find-user-by-filter.component';
+import { CommentComponent } from './home/comment/comment.component';
+import { CommentEditComponent } from './home/comment-edit/comment-edit.component';
+import { ShowAnyUserProfileComponent } from './home/show-any-user-profile/show-any-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { FindUserByFilterComponent } from './home/find-user-by-filter/find-user-
     MyPostsShowComponent,
     EditMyPostComponent,
     CreatePostComponent,
-    FindUserByFilterComponent
+    FindUserByFilterComponent,
+    CommentComponent,
+    CommentEditComponent,
+    ShowAnyUserProfileComponent
   ],
   imports: [
     BrowserModule,

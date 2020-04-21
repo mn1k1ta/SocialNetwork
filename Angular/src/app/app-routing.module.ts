@@ -12,6 +12,8 @@ import {MyPostsShowComponent} from './home/my-posts-show/my-posts-show.component
 import {EditMyPostComponent} from './home/edit-my-post/edit-my-post.component';
 import {CreatePostComponent} from './home/create-post/create-post.component';
 import {FindUserByFilterComponent} from './home/find-user-by-filter/find-user-by-filter.component';
+import {CommentComponent} from './home/comment/comment.component';
+import {CommentEditComponent} from './home/comment-edit/comment-edit.component';
 
 
 const routes: Routes = [
@@ -31,7 +33,9 @@ const routes: Routes = [
       {path: 'app-my-show-posts', component: MyPostsShowComponent},
       {path: 'app-edit-post', component: EditMyPostComponent},
       {path: 'app-create-post', component: CreatePostComponent},
-      {path: 'app-search-user', component: FindUserByFilterComponent}
+      {path: 'app-search-user', component: FindUserByFilterComponent},
+      {path: 'app-comments', component: CommentComponent},
+      {path: 'app-comments-edit', component: CommentEditComponent}
     ]
   }
 ];

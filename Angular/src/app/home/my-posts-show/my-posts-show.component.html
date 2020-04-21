@@ -5,7 +5,7 @@
     <span class="badge badge-pill badge-primary">{{item.dateTime | date}}</span>
     <p class="card-text">{{item.message}}}</p>
     <div class="butt-edit-comment">
-    <a href="#" class="btn btn-primary">Comment</a>
+    <a (click)="comment(item.postId)"  class="btn btn-primary">Comment</a>
       <div class="edit-and-delete">
     <button (click)="editPost(item.postId)" class="btn btn-warning">Edit</button>
       <button (click)="deletePost(item.postId)" class="btn btn-danger"> Delete

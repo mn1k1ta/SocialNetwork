@@ -1,0 +1,9 @@
+.main-box{
+  align-items: center;
+  text-align: -webkit-center;
+}
+
+textarea{
+  resize: none;
+  height: 100px;
+}
