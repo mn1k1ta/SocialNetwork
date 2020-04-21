@@ -46,5 +46,9 @@ userProfileId: any;
       this.ngOnInit();
     });
   }
+  goToUserProfile(id: any) {
+    localStorage.setItem('anyUserIdForShow', id);
+    this.router.navigateByUrl('/home/app-any-user-profile-show');
+  }
 
 }

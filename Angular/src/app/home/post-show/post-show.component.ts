@@ -25,4 +25,8 @@ export class PostShowComponent implements OnInit {
     localStorage.setItem('postIdForComment', postId);
     this.router.navigateByUrl('/home/app-comments');
   }
+  goToUserProfile(id: any) {
+    localStorage.setItem('anyUserIdForShow', id);
+    this.router.navigateByUrl('/home/app-any-user-profile-show');
+  }
 }

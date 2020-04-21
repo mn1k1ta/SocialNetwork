@@ -67,6 +67,11 @@ export class UserService {
         .set('country', filter.country)
         .set('city', filter.city)});
   }
+  getUserById(id: any) {
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileById', { headers: tokenHeader, params: new HttpParams().set('id', id)});
+  }
 }
 
 

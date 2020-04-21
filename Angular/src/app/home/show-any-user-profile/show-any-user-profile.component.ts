@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserProfileModel} from '../../Models/user-profile-model';
+import {UserService} from '../../shared/user.service';
 
 @Component({
   selector: 'app-show-any-user-profile',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-any-user-profile.component.css']
 })
 export class ShowAnyUserProfileComponent implements OnInit {
-
-  constructor() { }
+userProfile: UserProfileModel = new UserProfileModel();
+  constructor(private service: UserService) { }
 
   ngOnInit(): void {
+    this.loadUserProfile();
   }
-
+  loadUserProfile() {
+    this.service.getUserById(localStorage.getItem('anyUserIdForShow')).subscribe((data: UserProfileModel) => this.userProfile = data);
+  }
 }

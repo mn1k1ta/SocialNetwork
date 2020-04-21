@@ -3,4 +3,7 @@ export class PostModel {
   postName: string;
   message: string;
   dateTime: string;
+  userName: string;
+  img: string;
+  userProfileId: number;
 }

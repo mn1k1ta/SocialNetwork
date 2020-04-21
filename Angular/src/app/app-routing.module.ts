@@ -14,6 +14,7 @@ import {CreatePostComponent} from './home/create-post/create-post.component';
 import {FindUserByFilterComponent} from './home/find-user-by-filter/find-user-by-filter.component';
 import {CommentComponent} from './home/comment/comment.component';
 import {CommentEditComponent} from './home/comment-edit/comment-edit.component';
+import {ShowAnyUserProfileComponent} from './home/show-any-user-profile/show-any-user-profile.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
       {path: 'app-create-post', component: CreatePostComponent},
       {path: 'app-search-user', component: FindUserByFilterComponent},
       {path: 'app-comments', component: CommentComponent},
-      {path: 'app-comments-edit', component: CommentEditComponent}
+      {path: 'app-comments-edit', component: CommentEditComponent},
+      {path: 'app-any-user-profile-show', component: ShowAnyUserProfileComponent}
     ]
   }
 ];
