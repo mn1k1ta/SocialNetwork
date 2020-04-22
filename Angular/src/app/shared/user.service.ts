@@ -50,17 +50,17 @@ export class UserService {
     return this.http.post(this.BaseURI + '/ApplicationUser/Login', formData);
   }
   getAuthUser() {
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + sessionStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
-    return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileByApplicationUserId', { headers: tokenHeader, params: new HttpParams().set('userId', localStorage.getItem('userId'))});
+    return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileByApplicationUserId', { headers: tokenHeader, params: new HttpParams().set('userId', sessionStorage.getItem('userId'))});
   }
   editUserProfile(userProfile: UserProfileModel) {
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + sessionStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.put(this.BaseURI + '/UserProfile/EditUserProfile', userProfile, { headers: tokenHeader});
   }
   findUserByFilter(filter: FilterForSearchModel){
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + sessionStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.get(this.BaseURI + '/UserProfile/SearchByFilters', { headers: tokenHeader, params: new HttpParams().set('name', filter.name)
         .set('gender', filter.gender)
@@ -68,13 +68,13 @@ export class UserService {
         .set('city', filter.city)});
   }
   getUserById(id: any) {
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + sessionStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileById', { headers: tokenHeader, params: new HttpParams().set('id', id)});
   }
 
   getUserProfile(id: any) {
-    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
+    const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + sessionStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
     return this.http.get(this.BaseURI + '/UserProfile/GetUserProfileByApplicationUserId', { headers: tokenHeader, params: new HttpParams().set('userId', id)});
   }

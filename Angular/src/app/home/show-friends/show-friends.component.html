@@ -6,7 +6,7 @@
     <blockquote class="blockquote mb-0">
     <div *ngFor="let item of friends" style="margin-bottom: 18px; display: flex; flex-direction: row;justify-content: space-between;  align-items: center;">
      <div style="display: flex; flex-direction: row; align-items: center;">
-      <a (click)="goToUserProfile(item.userProfileId)"><img  width="70 rem" class="rounded-circle" width="70" height="70" src="{{item.img}}" style="margin-right: 14px;" ></a>
+      <a ><img type="button" (click)="goToUserProfile(item.userProfileId)" width="70 rem" class="rounded-circle" width="70" height="70" src="{{item.img}}" style="margin-right: 14px;" ></a>
         <h6>{{item.name}}</h6>
       </div>
       <div>

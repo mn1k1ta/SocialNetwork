@@ -27,8 +27,8 @@ increase() : void {
   onSubmit(form: NgForm) {
     this.service.login(form.value).subscribe(
       (res: any) => {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('userId', res.id);
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('userId', res.id);
         this.setUserProfileId(res.id);
         this.router.navigateByUrl('/home/app-show-user-profile');
       },
@@ -39,7 +39,7 @@ increase() : void {
   }
   setUserProfileId(id: any) {
     // tslint:disable-next-line:max-line-length
-    this.service.getUserProfile(id).subscribe((data: UserProfileModel) => localStorage.setItem('authUserProfileId' , data.userProfileId.toString()));
+    this.service.getUserProfile(id).subscribe((data: UserProfileModel) => sessionStorage.setItem('authUserProfileId' , data.userProfileId.toString()));
   }
 
 }

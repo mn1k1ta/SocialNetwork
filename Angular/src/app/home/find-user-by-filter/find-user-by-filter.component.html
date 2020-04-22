@@ -10,7 +10,7 @@
           <span class="badge badge-secondary">{{item.birthday | date}}</span>
         </div>
       </div>
-      <img width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle" src="{{item.img}}">
+      <img type="button" width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle"  src="{{item.img}}">
     </div>
     <div *ngIf="userIdByAuth!=item.userProfileId" class="card-body" style="align-items: flex-start">
       <button type="button" (click)="addToFriends(item.userProfileId)" class="btn btn-success">Add to friends</button>
@@ -21,7 +21,7 @@
           <span class="badge badge-secondary">{{item.birthday | date}}</span>
         </div>
       </div>
-      <img width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle" src="{{item.img}}">
+      <img type="button" width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle" src="{{item.img}}">
     </div>
   </div>
   </div>
