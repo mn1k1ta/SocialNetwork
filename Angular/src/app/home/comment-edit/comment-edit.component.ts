@@ -17,7 +17,7 @@ comment: CommentModel = new CommentModel();
     this.loadComment();
   }
   loadComment() {
-    this.service.getCommentById(localStorage.getItem('idCommentForEdit')).subscribe((data: CommentModel) => this.comment = data);
+    this.service.getCommentById(sessionStorage.getItem('idCommentForEdit')).subscribe((data: CommentModel) => this.comment = data);
   }
   edit(comment: CommentModel) {
   this.service.editComment(comment).subscribe( res => {

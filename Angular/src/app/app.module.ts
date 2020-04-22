@@ -24,6 +24,7 @@ import { FindUserByFilterComponent } from './home/find-user-by-filter/find-user-
 import { CommentComponent } from './home/comment/comment.component';
 import { CommentEditComponent } from './home/comment-edit/comment-edit.component';
 import { ShowAnyUserProfileComponent } from './home/show-any-user-profile/show-any-user-profile.component';
+import { ShowFriendsComponent } from './home/show-friends/show-friends.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ShowAnyUserProfileComponent } from './home/show-any-user-profile/show-a
     FindUserByFilterComponent,
     CommentComponent,
     CommentEditComponent,
-    ShowAnyUserProfileComponent
+    ShowAnyUserProfileComponent,
+    ShowFriendsComponent
   ],
   imports: [
     BrowserModule,

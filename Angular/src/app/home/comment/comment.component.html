@@ -2,7 +2,7 @@
   <div class="card"  style="width: 29rem;">
     <div class="card-body">
       <button type="button" (click)="goToUserProfile(post.userProfileId)" style="width: 26rem; max-width: 26rem; height: 5rem; max-height: 5rem; margin-bottom: 10px " class="btn btn-secondary">
-        <img width="50 rem"  src="{{post.img}}">
+        <img width="50 rem" class="rounded-circle" src="{{post.img}}">
         {{post.userName}}
       </button>
       <h5 class="card-title">{{post.postName}}</h5>
@@ -16,7 +16,7 @@
     <div *ngIf="userProfileId==item.userId">
     <div class="card-header">
       <div>
-      <img type="button" (click)="goToUserProfile(item.userId)" width="50 rem" src="{{item.img}}">
+      <img type="button" (click)="goToUserProfile(item.userId)" class="rounded-circle"  width="70" height="70" src="{{item.img}}">
 
         <span class="badge badge-success"> {{item.userName}}</span>
         <span class="badge badge-primary">{{item.dateTime | date }}</span>
@@ -39,7 +39,7 @@
     <div *ngIf="userProfileId!=item.userId">
       <div class="card-header">
         <div>
-          <img width="50 rem" type="button" (click)="goToUserProfile(item.userId)" src="{{item.img}}">
+          <img width="50 rem" type="button" class="rounded-circle"  width="70" height="70" (click)="goToUserProfile(item.userId)" src="{{item.img}}">
           {{item.userName}}
           <span class="badge badge-primary">{{item.dateTime | date }}</span>
         </div>

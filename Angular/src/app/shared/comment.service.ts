@@ -18,7 +18,7 @@ export class CommentService {
   createComment(comment: CommentModel, postId: any) {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
-    return this.http.post(this.BaseURI + '/Comment/CreateComment', comment, { headers: tokenHeader, params: new HttpParams().set('userId', localStorage.getItem('authUserProfileId'))
+    return this.http.post(this.BaseURI + '/Comment/CreateComment', comment, { headers: tokenHeader, params: new HttpParams().set('userId', sessionStorage.getItem('authUserProfileId'))
         .set('postId', postId)});
   }
   getCommentById(id: any) {

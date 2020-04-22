@@ -21,14 +21,14 @@ userProfileId: any;
   ngOnInit(): void {
     this.loadPost();
     this.loadComments();
-    this.userProfileId = localStorage.getItem('authUserProfileId');
+    this.userProfileId = sessionStorage.getItem('authUserProfileId');
   }
   loadPost() {
-    this.postService.loadPostById(localStorage.getItem('postIdForComment')).subscribe((data: PostModel) => this.post = data);
+    this.postService.loadPostById(sessionStorage.getItem('postIdForComment')).subscribe((data: PostModel) => this.post = data);
   }
   loadComments() {
     // tslint:disable-next-line:max-line-length
-    this.commentService.loadCommentForPost(localStorage.getItem('postIdForComment')).subscribe((data: CommentModel[]) => this.comments = data);
+    this.commentService.loadCommentForPost(sessionStorage.getItem('postIdForComment')).subscribe((data: CommentModel[]) => this.comments = data);
   }
   createComment(comment: CommentModel) {
     this.commentService.createComment(comment, this.post.postId).subscribe(res => {
@@ -37,7 +37,7 @@ userProfileId: any;
     });
   }
   edit(id: any) {
-    localStorage.setItem('idCommentForEdit', id);
+    sessionStorage.setItem('idCommentForEdit', id);
     this.router.navigateByUrl('/home/app-comments-edit');
   }
   delete(id: any) {
@@ -47,7 +47,7 @@ userProfileId: any;
     });
   }
   goToUserProfile(id: any) {
-    localStorage.setItem('anyUserIdForShow', id);
+    sessionStorage.setItem('anyUserIdForShow', id);
     this.router.navigateByUrl('/home/app-any-user-profile-show');
   }
 

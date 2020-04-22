@@ -61,11 +61,13 @@ h4{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .show-users{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .card{
@@ -77,10 +79,12 @@ h4{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .user-buttom{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 button{
@@ -91,6 +95,7 @@ button{
   display: flex;
   flex-direction: column;
   width: 5rem;
+  flex-wrap: wrap;
 }
 
 span{

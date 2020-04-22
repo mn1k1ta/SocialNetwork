@@ -21,7 +21,7 @@ post: PostModel = new PostModel();
     });
   }
   loadPost() {
-    this.service.loadPostById(localStorage.getItem('IdPostForEdit')).subscribe((data: PostModel) => this.post = data);
+    this.service.loadPostById(sessionStorage.getItem('IdPostForEdit')).subscribe((data: PostModel) => this.post = data);
   }
 
 

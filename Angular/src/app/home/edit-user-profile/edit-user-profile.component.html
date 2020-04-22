@@ -1,7 +1,12 @@
 <div class="centerbox">
   <img src="{{userProfileForEdit.img}}" width="300px" height="300px" class="img-thumbnail" alt="...">
 <div class="input-for-edit">
-
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">Photo</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" [(ngModel)]="userProfileForEdit.img">
+  </div>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="">Name</span>
@@ -14,7 +19,7 @@
     </div>
     <select class="custom-select" id="inputGroupSelect01" name="name" [(ngModel)]="userProfileForEdit.gender">
       <option   value="Male">Male</option>
-      <option  value="Fame">Fame</option>
+      <option  value="Female">Female</option>
     </select>
   </div>
   <div class="input-group mb-3">

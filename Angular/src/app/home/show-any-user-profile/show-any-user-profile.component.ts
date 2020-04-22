@@ -15,6 +15,6 @@ userProfile: UserProfileModel = new UserProfileModel();
     this.loadUserProfile();
   }
   loadUserProfile() {
-    this.service.getUserById(localStorage.getItem('anyUserIdForShow')).subscribe((data: UserProfileModel) => this.userProfile = data);
+    this.service.getUserById(sessionStorage.getItem('anyUserIdForShow')).subscribe((data: UserProfileModel) => this.userProfile = data);
   }
 }

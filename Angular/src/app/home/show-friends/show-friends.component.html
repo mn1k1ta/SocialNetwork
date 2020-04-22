@@ -1,0 +1,22 @@
+<div class="card" style="width: 25rem; max-width:25rem;   margin-top: 10px" >
+  <div class="card-header">
+     My Friends
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <div *ngFor="let item of friends" style="margin-bottom: 18px; display: flex; flex-direction: row;justify-content: space-between;  align-items: center;">
+     <div style="display: flex; flex-direction: row; align-items: center;">
+      <a (click)="goToUserProfile(item.userProfileId)"><img  width="70 rem" class="rounded-circle" width="70" height="70" src="{{item.img}}" style="margin-right: 14px;" ></a>
+        <h6>{{item.name}}</h6>
+      </div>
+      <div>
+        <button type="button" (click)="deleteFriend(item.userProfileId)" class="btn btn-danger"><svg class="bi bi-person-dash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm5-.5a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+        </svg></button>
+      </div>
+    </div>
+
+      <footer class="blockquote-footer">Click on a user to see more</footer>
+    </blockquote>
+  </div>
+</div>

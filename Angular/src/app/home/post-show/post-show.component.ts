@@ -22,11 +22,11 @@ export class PostShowComponent implements OnInit {
     this.service.loadAllPosts().subscribe((data: PostModel[]) => this.posts = data);
   }
   comment(postId: any) {
-    localStorage.setItem('postIdForComment', postId);
+    sessionStorage.setItem('postIdForComment', postId);
     this.router.navigateByUrl('/home/app-comments');
   }
   goToUserProfile(id: any) {
-    localStorage.setItem('anyUserIdForShow', id);
+    sessionStorage.setItem('anyUserIdForShow', id);
     this.router.navigateByUrl('/home/app-any-user-profile-show');
   }
 }

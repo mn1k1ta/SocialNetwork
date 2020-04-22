@@ -1,17 +1,27 @@
 <div class="search-users">
   <div class="show-users">
   <div *ngFor="let item of users" class="card">
-    <div class="card-body">
-      <div class="user-info">
-        <h5>{{item.name}} </h5>
+    <div *ngIf="userIdByAuth==item.userProfileId" class="card-body" style="align-items: flex-start">
+      <button disabled type="button" class="btn btn-success">Add to friends</button>
+      <div class="user-info"  style="display: flex; flex-direction: column;align-items: flex-end;">
+        <a (click)="goToUserProfile(item.userProfileId)"> <h5>{{item.name}} </h5></a>
         <div class="user-info-date">
           <span class="badge badge-pill badge-primary">{{item.gender}}</span>
           <span class="badge badge-secondary">{{item.birthday | date}}</span>
         </div>
       </div>
-
-      <img width="100 rem" src="{{item.img}}">
-
+      <img width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle" src="{{item.img}}">
+    </div>
+    <div *ngIf="userIdByAuth!=item.userProfileId" class="card-body" style="align-items: flex-start">
+      <button type="button" (click)="addToFriends(item.userProfileId)" class="btn btn-success">Add to friends</button>
+      <div class="user-info"  style="display: flex; flex-direction: column;align-items: flex-end;">
+        <a (click)="goToUserProfile(item.userProfileId)"> <h5>{{item.name}} </h5></a>
+        <div class="user-info-date">
+          <span class="badge badge-pill badge-primary">{{item.gender}}</span>
+          <span class="badge badge-secondary">{{item.birthday | date}}</span>
+        </div>
+      </div>
+      <img width="100 rem" (click)="goToUserProfile(item.userProfileId)" class="rounded-circle" src="{{item.img}}">
     </div>
   </div>
   </div>
@@ -30,7 +40,7 @@
       </div>
       <select class="custom-select" id="inputGroupSelect01" name="name" [(ngModel)]="filter.gender">
         <option   value="Male">Male</option>
-        <option  value="Fame">Fame</option>
+        <option  value="Female">Female</option>
       </select>
     </div>
     <div class="input-group mb-3">

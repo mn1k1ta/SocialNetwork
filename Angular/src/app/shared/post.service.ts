@@ -17,7 +17,7 @@ export class PostService {
   loadMyPosts() {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
-    return this.http.get(this.BaseURI + '/Post/GetPostsByUser', { headers: tokenHeader, params: new HttpParams().set('id', localStorage.getItem('authUserProfileId'))});
+    return this.http.get(this.BaseURI + '/Post/GetPostsByUser', { headers: tokenHeader, params: new HttpParams().set('id', sessionStorage.getItem('authUserProfileId'))});
   }
   editPost(post: PostModel) {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
@@ -37,6 +37,6 @@ export class PostService {
   addPost(post: PostModel) {
     const tokenHeader = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     // tslint:disable-next-line:max-line-length
-    return this.http.post(this.BaseURI + '/Post/CreatePost', post, { headers: tokenHeader, params: new HttpParams().set('userProfileDTOId', localStorage.getItem('authUserProfileId'))});
+    return this.http.post(this.BaseURI + '/Post/CreatePost', post, { headers: tokenHeader, params: new HttpParams().set('userProfileDTOId', sessionStorage.getItem('authUserProfileId'))});
   }
 }

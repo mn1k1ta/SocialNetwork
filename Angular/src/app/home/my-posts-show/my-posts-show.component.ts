@@ -21,7 +21,7 @@ posts: PostModel[];
     this.service.loadMyPosts().subscribe((data: PostModel[]) => this.posts = data);
   }
   editPost(id: any) {
-    localStorage.setItem('IdPostForEdit', id);
+    sessionStorage.setItem('IdPostForEdit', id);
     this.router.navigateByUrl('/home/app-edit-post');
   }
   deletePost(id: any) {
@@ -30,11 +30,11 @@ posts: PostModel[];
     });
   }
   comment(postId: any) {
-    localStorage.setItem('postIdForComment', postId);
+    sessionStorage.setItem('postIdForComment', postId);
     this.router.navigateByUrl('/home/app-comments');
   }
   goToUserProfile(id: any) {
-    localStorage.setItem('anyUserIdForShow', id);
+    sessionStorage.setItem('anyUserIdForShow', id);
     this.router.navigateByUrl('/home/app-any-user-profile-show');
   }
 }
