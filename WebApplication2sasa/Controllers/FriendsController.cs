@@ -22,8 +22,8 @@ namespace WebApi.Controllers
             this._userProfileService = _userProfileService;
         }
 
-        [HttpPost]
-        [Route("AddUserToFrends")]
+        [HttpGet]
+        [Route("AddUserToFriends")]
         public async Task<IActionResult> AddUserToFrends(int userId,int friendId)
         {
             return Ok(await _friendsServices.AddToFriendsAsync(userId, friendId));

@@ -29,10 +29,14 @@ namespace BLL.Services
             if (friends == null)
                 new OperationDetails(false, "User is not found!", "AddToFriends");
             var userWithThisFriends = await _database.friendsRepository.GetWhereAsync(u => u.UserId == userId && u.FriendId == friendsId);
-            if (userWithThisFriends == null)
+            if (userWithThisFriends.Count == 0)
             {
                 _database.friendsRepository.Create(new DAL.Model.Friends() { FriendId = friendsId, UserId = userId });
                 await _database.SaveAsync();
+            }
+            else
+            {
+                return new OperationDetails(false, "This user is already in your friends", "Friends");
             }
             return new OperationDetails(true, "Frinds with add", "Friends");
 

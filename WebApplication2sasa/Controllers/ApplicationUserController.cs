@@ -52,7 +52,8 @@ namespace WebApi.Controllers
             try
             {
                 var result = await _userManger.applicationUser.CreateAsync(applicationUser, model.Password);
-                await _userProfileService.CreateUserProfileAsync(new UserProfileDTO{ ApplicationUser=_mapper.Map<ApplicationUser>(model)});
+                var user = await _userManger.applicationUser.FindByNameAsync(model.UserName);
+                await _userProfileService.CreateUserProfileAsync(new UserProfileDTO { ApplicationUser = user });
                
                 await _userManger.applicationUser.AddToRoleAsync(applicationUser, model.Role);
                 return Ok(result);
