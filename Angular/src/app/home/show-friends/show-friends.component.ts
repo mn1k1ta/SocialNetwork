@@ -34,4 +34,8 @@ userId: number;
     sessionStorage.setItem('anyUserIdForShow', id);
     this.router.navigateByUrl('/home/app-any-user-profile-show');
   }
+  sendMessage(id : any) {
+    sessionStorage.setItem('userIdForMessage', id);
+    this.router.navigateByUrl('/home/app-message');
+  }
 }

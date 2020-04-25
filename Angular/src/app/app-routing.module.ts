@@ -16,6 +16,7 @@ import {CommentComponent} from './home/comment/comment.component';
 import {CommentEditComponent} from './home/comment-edit/comment-edit.component';
 import {ShowAnyUserProfileComponent} from './home/show-any-user-profile/show-any-user-profile.component';
 import {ShowFriendsComponent} from './home/show-friends/show-friends.component';
+import {MessageComponent} from './home/message/message.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
       {path: 'app-comments', component: CommentComponent},
       {path: 'app-comments-edit', component: CommentEditComponent},
       {path: 'app-any-user-profile-show', component: ShowAnyUserProfileComponent},
-      {path: 'app-friends-show', component: ShowFriendsComponent}
+      {path: 'app-friends-show', component: ShowFriendsComponent},
+      {path: 'app-message', component: MessageComponent}
     ]
   }
 ];

@@ -25,6 +25,7 @@ import { CommentComponent } from './home/comment/comment.component';
 import { CommentEditComponent } from './home/comment-edit/comment-edit.component';
 import { ShowAnyUserProfileComponent } from './home/show-any-user-profile/show-any-user-profile.component';
 import { ShowFriendsComponent } from './home/show-friends/show-friends.component';
+import { MessageComponent } from './home/message/message.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ShowFriendsComponent } from './home/show-friends/show-friends.component
     CommentComponent,
     CommentEditComponent,
     ShowAnyUserProfileComponent,
-    ShowFriendsComponent
+    ShowFriendsComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

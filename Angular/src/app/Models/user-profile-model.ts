@@ -9,4 +9,5 @@ export class UserProfileModel {
  sity: string;
  maritalStatus: string;
  img: string;
+ aplicationUserId: string;
 }

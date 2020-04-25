@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="mesgs">
+        <div class="show-message">
+        <div *ngFor="let item of allMessages" class="msg_history">
+          <div *ngIf="item.senderId!=userName" class="incoming_msg">
+            <div class="incoming_msg_img"> <img width="70 rem" class="rounded-circle" width="70" height="70" src="{{friendProfile.img}}" alt="sunil"> </div>
+            <div class="received_msg">
+              <div class="received_withd_msg">
+                <p>{{item.messageText}}</p>
+                <span class="time_date">{{item.date | date}}</span></div>
+            </div>
+          </div>
+          <div *ngIf="item.senderId==userName" class="outgoing_msg">
+            <div class="sent_msg">
+              <p>{{item.messageText}}</p>
+              <span class="time_date"> {{item.date | date}}</span> </div>
+          </div>
+        </div>
+          <div *ngFor="let item of messages" class="msg_history">
+            <div *ngIf="item.senderId!=userName" class="incoming_msg">
+              <div class="incoming_msg_img"> <img width="70 rem" class="rounded-circle" width="70" height="70" src="{{friendProfile.img}}" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>{{item.messageText}}</p>
+                  <span class="time_date">{{item.date | date}}</span></div>
+              </div>
+            </div>
+            <div *ngIf="item.senderId==userName" class="outgoing_msg">
+              <div class="sent_msg">
+                <p>{{item.messageText}}</p>
+                <span class="time_date"> {{item.date | date}}</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="type_msg">
+      <div class="input_msg_write">
+        <input type="text" class="write_msg"  [(ngModel)]="message" placeholder="Type a message" />
+        <button class="msg_send_btn" (click)="sendMessage()" type="button"><svg class="bi bi-cursor-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 01.103.557L8.528 15.467a.5.5 0 01-.917-.007L5.57 10.694.803 8.652a.5.5 0 01-.006-.916l12.728-5.657a.5.5 0 01.556.103z" clip-rule="evenodd"/>
+        </svg></button>
+      </div>
+    </div>
+  </div></div>
