@@ -15,6 +15,8 @@ namespace DAL.Context
         private ICommentRepository _commentRepository;
         private IPostRepository _postRepository;
         private IFriendsRepository _friendsRepository;
+        private IRoomRepository _roomRepository;
+        private IMessageRepository _messageRepository;
 
         public UnitOfWork(SocialNetworkDbContext context,
           ApplicationRoleManager applicationRoleManager,
@@ -40,6 +42,24 @@ namespace DAL.Context
             }
         }
 
+        public IMessageRepository messageRepository
+        {
+            get
+            {
+                if (_messageRepository == null)
+                    _messageRepository = new MessageRepository(_context);
+                return _messageRepository;
+            }
+        }
+        public IRoomRepository roomRepository
+        {
+            get
+            {
+                if (_roomRepository == null)
+                    _roomRepository = new RoomRepository(_context);
+                return _roomRepository;
+            }
+        }
         public ICommentRepository commentRepository
         {
             get

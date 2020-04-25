@@ -1,7 +1,9 @@
 using AutoMapper;
 using BLL.Configurations;
+using BLL.Hubs;
 using BLL.Interfaces;
 using BLL.Services;
+using BLL.Services.MessageServices;
 using DAL.Context;
 using DAL.Identity;
 using DAL.Interfaces;
@@ -62,6 +64,8 @@ namespace WebApplication2sasa
             services.AddScoped<IPostService, PostService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IFriendsServices, FriendsService>();
+            services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IRoomService, RoomService>();
           
 
             services.Configure<IdentityOptions>(options =>
@@ -94,14 +98,17 @@ namespace WebApplication2sasa
                     ClockSkew = TimeSpan.Zero
                 };
             });
+            services.AddSignalR();
             services.AddControllersWithViews()
           .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
             services.AddControllers();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -118,7 +125,10 @@ namespace WebApplication2sasa
            .AllowAnyHeader()
            .AllowAnyMethod()
 
-           );
+           .AllowCredentials()
+         
+
+         );
 
             app.UseAuthentication();    
             app.UseAuthorization();
@@ -127,6 +137,13 @@ namespace WebApplication2sasa
             {
                 endpoints.MapControllers();
             });
+            app.UseSignalR(options =>
+            {
+                options.MapHub<MessageHub>("/MessageHub");
+            });
+
+           
+
         }
     }
 }

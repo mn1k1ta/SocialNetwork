@@ -16,6 +16,8 @@ namespace BLL.Configurations
             CreateMap<Comment, CommentDTO>().ReverseMap();
             CreateMap<Post, PostDTO>().ReverseMap();
             CreateMap<Friends, FriendsDTO>().ReverseMap();
+            CreateMap<Room, RoomDTO>().ReverseMap();
+            CreateMap<Message, MessageDTO>().ReverseMap();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace BLL.ModelDTO
         public string AboutMe { get; set; }
         public string MaritalStatus { get; set; }
         public string Img { get; set; }
+        public string AplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
     }
 }

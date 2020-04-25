@@ -15,6 +15,8 @@ namespace DAL.Interfaces
         ApplicationUserManager applicationUser { get; }
         IUserProfileRepository userProfileRepository { get; }
         ICommentRepository commentRepository { get; }
+        IRoomRepository roomRepository { get; }
+        IMessageRepository messageRepository { get; }
         IPostRepository postRepository { get; }
         IFriendsRepository friendsRepository { get; }
         Task SaveAsync();

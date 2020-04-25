@@ -12,8 +12,10 @@ namespace DAL.Context
         public SocialNetworkDbContext(DbContextOptions<SocialNetworkDbContext> options)
             :base(options)
         {
-            Database.EnsureCreated();
+            
         }
+        public DbSet<Message> Message { get; set; }
+        public DbSet<Room> Room { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Post> Posts { get; set; }
@@ -27,6 +29,7 @@ namespace DAL.Context
                 .HasOne(u => u.UserProfile)
                 .WithOne(p => p.ApplicationUser)
                 .HasForeignKey<UserProfile>(p => p.AplicationUserId);
+
         }
     }
 }
